@@ -67,8 +67,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "/Users/landscape530/CLionProjects/test/cmake-build-debug",
-		"source" : "/Users/landscape530/CLionProjects/test"
+		"build" : "/Users/landscape530/CLionProjects/project2/cmake-build-debug",
+		"source" : "/Users/landscape530/CLionProjects/project2"
 	},
 	"version" : 
 	{
