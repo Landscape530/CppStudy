@@ -1,5 +1,7 @@
-/Users/landscape530/CLionProjects/test/cmake-build-debug/CMakeFiles/CodingTest.dir
-/Users/landscape530/CLionProjects/test/cmake-build-debug/CMakeFiles/LinkedList.dir
-/Users/landscape530/CLionProjects/test/cmake-build-debug/CMakeFiles/test1.dir
-/Users/landscape530/CLionProjects/test/cmake-build-debug/CMakeFiles/edit_cache.dir
-/Users/landscape530/CLionProjects/test/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+C:/Users/huang/code/c++/CppStudy/cmake-build-debug/CMakeFiles/CodingTest.dir
+C:/Users/huang/code/c++/CppStudy/cmake-build-debug/CMakeFiles/LinkedList.dir
+C:/Users/huang/code/c++/CppStudy/cmake-build-debug/CMakeFiles/test1.dir
+C:/Users/huang/code/c++/CppStudy/cmake-build-debug/CMakeFiles/algorithm.dir
+C:/Users/huang/code/c++/CppStudy/cmake-build-debug/CMakeFiles/homework.dir
+C:/Users/huang/code/c++/CppStudy/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/huang/code/c++/CppStudy/cmake-build-debug/CMakeFiles/rebuild_cache.dir
