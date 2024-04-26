@@ -1,16 +1,77 @@
 #include <iostream>
-#include "clock.h"
+#include <bits/stdc++.h>
+// #include "clock.h"
 using namespace std;
 
 int hl = 0;
 
+class A {
+public:
+    A(): i(0) { hl++; cout<< "A:: default constructor : "<<hl<<endl;}
+    A(int l): i(l) { hl++; cout<< "A:: constructor : "<<hl<<endl;}
+    A( const A &b): i(b.i) {cout<< "A:: copy constructor : "<<hl<<endl;}
+    int i;
+    static int sum;
+
+    A operator +(const A& n) const {
+        return this->i + n.i;
+    }
+    void print() const {cout<< this->i <<endl;}
+    virtual void f(){cout<<"A::f()" <<endl;}
+    virtual ~A(){ hl--; cout<< "A:: destructor : "<<hl<<endl;}
+};
+
+int A::sum = 1;
+
+class B : public A {
+public:
+    B() : b(10){}
+    int b;
+    void f() override {cout<<"B::f()" <<endl;}
+    void g() {cout<<"B::g()" <<endl;}
+
+    ~B() override {cout<< "B:: destructor : "<<hl<<endl; delete this;}
+};
+
+void f() {
+    static int v = 0;
+    v++;
+    cout<<v <<endl;
+}
+
+template <class T>
+void s(T & a, T & b) {
+    T temp = a;
+    a = b;
+    b = temp;
+}
+
+class a {
+public:
+    a(){}
+    int val = 0;
+    virtual void print() {
+        cout<< "父类函数" <<endl;
+    }
+};
+
+class b : public a{
+public:
+    b(int i){}
+    b(string s){}
+    int val = 100;
+    explicit b(const a & c){ cout<< "111"<<endl;}
+
+    void print()  override{
+        cout<< "子类函数" <<endl;
+    }
+};
+
 int main() {
-    // cout<<hl<<endl;
-    // Myclock a;
-    // // cout<<a.current_time()<<endl;
-    // // a.set_time(1,5,59);
-    // // cout<<a.current_time()<<endl;
-    // cout<<a.v<<endl;
-    t(22);
+    vector<int>a {1,2,3,4,6};
+    cout<< *a.begin() <<endl;
+    a.insert(a.begin()+4,5);
+    for(auto e : a) cout<<e<<endl;
+
     return 0;
 }
