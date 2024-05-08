@@ -17,9 +17,9 @@ void quick_sort( vector<int> &arr , int i , int j);
 
 class topK {
 public:
-    topK(){};
+    topK()= default;
 
-    void maxHeapify(vector<int> & a, int cur , int heapSize){
+    static void maxHeapify(vector<int> & a, int cur , int heapSize){
         int left_node = cur*2 + 1 , right_node = cur*2 + 2, largest = cur;
         if( left_node < heapSize && a[left_node] > a[largest])  largest = left_node;
         if( right_node < heapSize && a[right_node] > a[largest])  largest = right_node;

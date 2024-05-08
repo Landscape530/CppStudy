@@ -58,8 +58,7 @@ public:
 class b : public a{
 public:
     b(int i){}
-    b(string s){}
-    int val = 100;
+
     explicit b(const a & c){ cout<< "111"<<endl;}
 
     void print()  override{
@@ -68,10 +67,10 @@ public:
 };
 
 int main() {
-    vector<int>a {1,2,3,4,6};
-    cout<< *a.begin() <<endl;
-    a.insert(a.begin()+4,5);
-    for(auto e : a) cout<<e<<endl;
-
+    a * p_a = new b(1);
+    b * p_b = dynamic_cast<b*>(p_a);
+    p_b->print();
+    cout<<"1"<<endl;
+    delete p_a;
     return 0;
 }

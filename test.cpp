@@ -4,9 +4,9 @@ using namespace std;
 
 class father{
 public:
-    // father(): val(1) {
-    //     cout<<"默认构造 基类 函数... "<<endl;
-    // };
+    father(): val(1) {
+        cout<<"默认构造 基类 函数... "<<endl;
+    };
     explicit father(int v): val(v) {                          //  显式转换 防止 编译器的隐式转换
         cout<<"传入参数构造 基类 函数... "<<endl;
     };
@@ -28,7 +28,7 @@ private:
     int val ;
 };
 
-class child final : public father{
+class child  : public father{
     public:
         int v;
         // child(){
@@ -50,12 +50,7 @@ class child final : public father{
 };
 
 int main() {
-    // auto *f = new father[10];
-    // father f;
-    int x = 47;
-    int & y =x;
-    cout<<y<<endl;
-    cout<<&y<<endl;
-    cout<<&x<<endl;
+    father * ch = new child();
+    delete ch;
     return 0;
 }

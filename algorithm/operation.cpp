@@ -2,17 +2,17 @@
 #include "algori.h"
 using namespace std;
 
-class singleton {                                   // µ¥ÀýÄ£Ê½ ÀÁººÀà + ÖÇÄÜÖ¸Õë + Ëø ¡£ Ë«ÖØ¼ì²éËø¶¨
+class singleton {                                   // ï¿½ï¿½ï¿½ï¿½Ä£Ê½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ + ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ + ï¿½ï¿½ ï¿½ï¿½ Ë«ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 public:
-    typedef shared_ptr<singleton>ptr;               // ¸øÖÇÄÜÖ¸Õë¶¨Òå±ðÃûptr
+    typedef shared_ptr<singleton>ptr;               // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ë¶¨ï¿½ï¿½ï¿½ï¿½ï¿½ptr
     ~singleton() {
         cout<<"Destructor called !"<<endl;
     }
-    singleton(singleton&) = delete;                 // ÏÔÊ½É¾³ý ¿½±´¹¹Ôìº¯Êý
+    singleton(singleton&) = delete;                 // ï¿½ï¿½Ê½É¾ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
     singleton& operator = (const singleton&) = delete;
-    static ptr get_instance() {                     // ¾²Ì¬³ÉÔ±º¯Êý ·µ»Ø ÖÇÄÜÖ¸Õë
+    static ptr get_instance() {                     // ï¿½ï¿½Ì¬ï¿½ï¿½Ô±ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½
         if( m_instance_ptr == nullptr) {
-            lock_guard<mutex> lk(m_mutex);       // »¥³âËø
+            lock_guard<mutex> lk(m_mutex);       // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             if(m_instance_ptr == nullptr) {
                 m_instance_ptr = shared_ptr<singleton>(new singleton);
             }
@@ -24,21 +24,54 @@ private:
     singleton() {
         cout<<"Constructor called !"<<endl;
     };
-    static ptr m_instance_ptr;                      // ¿ÕµÄ¶ÔÏó
+    static ptr m_instance_ptr;                      // ï¿½ÕµÄ¶ï¿½ï¿½ï¿½
     static mutex m_mutex;
 };
 
 singleton::ptr singleton::m_instance_ptr = nullptr;
 mutex singleton::m_mutex;
 
-int main() {
-    vector<int>arr = {4,2,1,3,6,5};
-    // topK t;
-    // cout<<t.findKthLargest(arr,2)<<endl;
-    // printVector(arr);
-    // singleton s;
+void testSingleton() {
     singleton::ptr i1 = singleton::get_instance();
     singleton::ptr i2 = singleton::get_instance();
+}
+
+class a {
+public:
+    int v;
+    a():v(1){}
+    explicit a(int x):v(x){}
+};
+
+class cmp {
+public:
+    bool operator()(const a & a1, const a & a2) {
+        return a1.v < a2.v;
+    }
+};
+
+void customized_sort() {
+    a a1(2);
+    a a2(3);
+    a a3(1);
+    vector<a>v {a1,a2,a3};
+    for(auto e : v) {
+        cout<<e.v<<endl;
+    }
+    sort(v.begin(),v.end(),cmp());
+    for(auto e : v) {
+        cout<<e.v<<endl;
+    }
+}
+
+int main() {
+    int a = 10;
+    int * p = &a;
+    int **pp = &p;
+    cout<< p <<" "<<pp<<endl;
+    cout<< *p <<" "<<*pp<<endl;
+    *p = 20;
+    cout<<a<<endl;
     return 0;
 }
 
